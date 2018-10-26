@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" href="assets/zc.jpg">
+  <link rel="apple-itouch-icon" href="assets/image1.jpeg">
+  <title>Authenticated!</title>
+  <link rel="stylesheet" href="assets/bootstrap.min.css">
+  <script src="common.js"></script>
+</head>
+
+<body>
+  <h1> You Authenticated! </h1>
+  <a href="#" class="btn btn-primary" onclick="private()">登录</a>
+</body>
+<script>
+  function private() {
+    postData('/private', {}).then(function (res) {
+      console.log('private is ', res)
+    }).catch(function (error) {
+      console.log('login failed', error);
+    });
+  }
+</script>
+
+</html>
