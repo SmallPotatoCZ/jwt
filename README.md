@@ -69,3 +69,4 @@ localStorage 是一种更好的机制为了存储浏览器会话的 Token。
 ## 参考链接
 
 [jwt.io](https://github.com/dwyl/learn-json-web-tokens)
+[https://blog.bitsrc.io/understanding-json-web-token-authentication-a1febf0e15](https://blog.bitsrc.io/understanding-json-web-token-authentication-a1febf0e15)
