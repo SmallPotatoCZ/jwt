@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%;">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" href="assets/zc.jpg">
+  <link rel="apple-itouch-icon" href="assets/image1.jpeg">
+  <title>Authentication with JSON Web Tokens</title>
+  <link rel="stylesheet" href="assets/bootstrap.min.css">
+  <script src="/assets/common.js"></script>
+</head>
+
+<body style="width: 100%;height:100%;background:linear-gradient(160deg,#00ff87,#00ddcc,#00b3ed,#0082d8,#3f5aa9,#4b3f81,#47255b,#3a0e37);">
+  <div class="containter container-fluid" style="height:100%">
+    <div style="height:100%" class="row justify-content-center align-items-center">
+      <div>
+        <div class="card text-center" style="width:42rem">
+          <div class="card-header">
+            JWT 用户认证
+          </div>
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">用户名</span>
+              </div>
+              <input id="username" type="text" class="form-control" placeholder="zhangchao" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">密　码</span>
+              </div>
+              <input id="password" type="text" class="form-control" placeholder="123" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <a href="#" class="btn btn-primary" onclick="login()">登录</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  var usernameEle, passwordEle, username, password;
+  document.addEventListener('DOMContentLoaded', function () {
+    usernameEle = document.querySelector('#username');
+    passwordEle = document.querySelector('#password');
+  })
+
+  function login() {
+    postData('/login', {
+      username: usernameEle.value,
+      password: passwordEle.value
+    }).then(function (res) {
+      if (res.result) {
+        window.location.pathname = '/index.html';
+      } else {
+        console.log('authrized failed');
+      }
+    }).catch(function (error) {
+      console.log('login failed', error);
+    });
+  }
+</script>
+
+</html>

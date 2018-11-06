@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%;">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" href="assets/zc.jpg">
+  <link rel="apple-itouch-icon" href="assets/image1.jpeg">
+  <title>Authentication with JSON Web Tokens</title>
+  <link rel="stylesheet" href="assets/bootstrap.min.css">
+  <script src="assets/common.js"></script>
+</head>
+
+<body style="width: 100%;height:100%;background:linear-gradient(160deg,#00ff87,#00ddcc,#00b3ed,#0082d8,#3f5aa9,#4b3f81,#47255b,#3a0e37);">
+  <div class="containter container-fluid" style="height:100%">
+    <div style="height:100%" class="row justify-content-center align-items-center">
+      <div>
+        <div class="card" style="width:42rem">
+          <div class="card-header">
+            JWT 用户认证 demo1 主页
+          </div>
+          <div class="card-body">
+            <div>
+              业务逻辑：token 认证失败后，返回登录页，重新登录
+            </div>
+            <div class="msgBox">
+
+            </div>
+            <a href="#" class="btn btn-primary" onclick="test()">请求数据</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  var usernameEle, passwordEle, username, password;
+  document.addEventListener('DOMContentLoaded', function () {
+    // 判断登录状态
+    getData('/test', {}).then(function (res) {
+      if (!res.result) {
+        window.location.pathname = "/login.html";
+      }
+    }).catch(function (error) {
+      console.log('authrized failed', error);
+    });
+
+    usernameEle = document.querySelector('#username');
+    passwordEle = document.querySelector('#password');
+  });
+
+  function test() {
+    postData('/test', {
+      data: '测试数据'
+    }).then(function (res) {
+      document.querySelector('.msgBox').innerHTML = res.msg;
+    }).catch(function (error) {
+      console.log('login failed', error);
+    });
+  }
+</script>
+
+</html>
