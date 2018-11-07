@@ -23,8 +23,8 @@ JWT 技术的基本逻辑就是，服务器不再存储会话数据，而是将
 ## 目录结构
 ./asset - 工程所用的静态文件，READMEME.md 文件中用到的图片
 ./server - 服务端代码
-├── /demo1 - 客户端通过 Cookie 自动认证
-├── /demo2 - 客户端通过 HTTP 中 Authorization 字段自动认证
+├── /demo1 - 客户端通过 Cookie 存储 Token
+├── /demo2 - 客户端通过 HTTP 中 Authorization 字段，存储在 Web Storage
 ├── /demo3 - token 的单次验证
 ├── /demo4 - 涉及简单的权限认证
 ├── main.js - 主入口
@@ -145,6 +145,7 @@ JWT 技术的基本逻辑就是，服务器不再存储会话数据，而是将
 ## 参考链接
 
 * [阮一峰 JWT](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)
+* [阮一峰 OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
 * [jwt.io](https://github.com/dwyl/learn-json-web-tokens)
 * [https://blog.bitsrc.io/understanding-json-web-token-authentication-a1febf0e15](https://blog.bitsrc.io/understanding-json-web-token-authentication-a1febf0e15)
 * [https://blog.usejournal.com/sessionless-authentication-withe-jwts-with-node-express-passport-js-69b059e4b22c](https://blog.usejournal.com/sessionless-authentication-withe-jwts-with-node-express-passport-js-69b059e4b22c)
